@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".RcViewFragment"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:foregroundGravity="fill"
+        android:layout_gravity="center">
+
+
+
+
+
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/image_blue"
+            android:src="@android:mipmap/sym_def_app_icon"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_alignParentRight="true"
+                android:gravity="end"
+                android:layout_margin="20dp">
+
+                <LinearLayout
+                    android:id="@+id/layout1_blur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:layout_gravity="center"
+                    >
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/list_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1/12"/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/layout2_blur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <ImageView
+
+                        android:id="@+id/context_menu"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@drawable/baseline_format_list_bulleted_24"
+
+                        />
+                </LinearLayout>
+
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="10"
+                android:gravity="center"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:layout_marginBottom="10dp"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Atirgulim"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:src="@android:mipmap/sym_def_app_icon"
+                    android:layout_gravity="center"
+                    android:id="@+id/image"/>
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:id="@+id/audio_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anvar Sanayev"
+                    android:textSize="20sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+
+    </FrameLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:text="12:01"
+            android:layout_marginStart="15dp"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/time_position" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="/"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15:02"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_replay_30"
+            android:id="@+id/reples30"/>
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/skip"
+            android:id="@+id/skip"/>
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/outline_pause_circle_24"
+            android:id="@+id/play_pauza"/>
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/shape"
+            android:id="@+id/shep"/>
+        <ImageView
+            android:layout_margin="10dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_forward_30"
+            android:id="@+id/forward30"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
