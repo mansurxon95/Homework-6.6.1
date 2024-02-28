@@ -8,6 +8,7 @@ import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -73,9 +74,14 @@ class RcViewFragment : Fragment() {
         serializable = arguments?.getSerializable("key") as Sound
         list = arguments?.getSerializable("key2") as ArrayList<Sound>
 
+        if (serializable?.image==null){
+            binding.image.setImageResource(R.drawable.bandixon)
+            binding.imageBlue.setImageResource(R.drawable.bandixon)
+        }else{
+            binding.image.setImageURI(serializable!!.image)
+            binding.imageBlue.setImageURI(serializable!!.image)
+        }
 
-        binding.image.setImageURI(serializable!!.image)
-        binding.imageBlue.setImageURI(serializable!!.image)
         binding.name.text = serializable!!.artist
         binding.audioName.text = serializable!!.title
 
@@ -144,12 +150,21 @@ class RcViewFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        mediaPlayer = null
+    }
+
     private fun mediastart(position: Int,list:ArrayList<Sound>) {
 
 
-
-        binding.image.setImageURI(list[position!!].image)
-        binding.imageBlue.setImageURI(list[position!!].image)
+        if (serializable?.image==null){
+            binding.image.setImageResource(R.drawable.bandixon)
+            binding.imageBlue.setImageResource(R.drawable.bandixon)
+        }else{
+            binding.image.setImageURI(serializable!!.image)
+            binding.imageBlue.setImageURI(serializable!!.image)
+        }
         binding.name.text = list[position!!].artist
         binding.audioName.text = list[position!!].title
         mediaPlayer = MediaPlayer.create(binding.root.context, list[position!!].path?.toUri())
@@ -231,13 +246,17 @@ class RcViewFragment : Fragment() {
     }
 
     fun updateEffect(progress: Float, view: View) {
-        if (progress > 0) {
-            val blur = RenderEffect.createBlurEffect(
-                progress, progress, Shader.TileMode.CLAMP)
-            view.setRenderEffect(blur)
-        } else {
-            view.setRenderEffect(null)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (progress > 0) {
+                val blur = RenderEffect.createBlurEffect(
+                    progress, progress, Shader.TileMode.CLAMP
+                )
+                view.setRenderEffect(blur)
+            } else {
+                view.setRenderEffect(null)
+            }
         }
+
     }
 
 

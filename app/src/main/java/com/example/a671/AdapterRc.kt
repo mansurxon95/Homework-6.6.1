@@ -15,7 +15,12 @@ class AdapterRc (var onClik: OnClik): ListAdapter<Sound, AdapterRc.VH>(MyDiffUti
 
         fun onBind(user: Sound,position: Int){
 
-            itemview.itemImage.setImageURI(user.image!!)
+            if(user.image==null){
+                itemview.itemImage.setImageResource(R.drawable.bandixon)
+            }else{
+                itemview.itemImage.setImageURI(user.image!!)
+            }
+
             itemview.itemName.text = user.artist
             itemview.itemMp3Name.text = user.title
 
